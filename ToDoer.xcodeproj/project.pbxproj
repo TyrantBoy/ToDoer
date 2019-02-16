@@ -12,16 +12,18 @@
 		ADF794A32217D98B007E7BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADF794A12217D98B007E7BED /* Main.storyboard */; };
 		ADF794A52217D98E007E7BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADF794A42217D98E007E7BED /* Assets.xcassets */; };
 		ADF794A82217D98E007E7BED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADF794A62217D98E007E7BED /* LaunchScreen.storyboard */; };
+		ADF794B022180140007E7BED /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF794AF22180140007E7BED /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ADF7949A2217D98B007E7BED /* ToDoer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF7949D2217D98B007E7BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ADF7949F2217D98B007E7BED /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		ADF7949F2217D98B007E7BED /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		ADF794A22217D98B007E7BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADF794A42217D98E007E7BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADF794A72217D98E007E7BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADF794A92217D98E007E7BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADF794AF22180140007E7BED /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +57,46 @@
 			isa = PBXGroup;
 			children = (
 				ADF7949D2217D98B007E7BED /* AppDelegate.swift */,
-				ADF7949F2217D98B007E7BED /* ToDoViewController.swift */,
-				ADF794A12217D98B007E7BED /* Main.storyboard */,
-				ADF794A42217D98E007E7BED /* Assets.xcassets */,
-				ADF794A62217D98E007E7BED /* LaunchScreen.storyboard */,
+				ADF794B322180191007E7BED /* Views */,
+				ADF794B222180182007E7BED /* Model */,
+				ADF794B122180173007E7BED /* Controllers */,
+				ADF794B4221801AF007E7BED /* Supporting Files */,
 				ADF794A92217D98E007E7BED /* Info.plist */,
 			);
 			path = ToDoer;
+			sourceTree = "<group>";
+		};
+		ADF794B122180173007E7BED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ADF7949F2217D98B007E7BED /* ToDoViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ADF794B222180182007E7BED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ADF794AF22180140007E7BED /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ADF794B322180191007E7BED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADF794A12217D98B007E7BED /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADF794B4221801AF007E7BED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ADF794A42217D98E007E7BED /* Assets.xcassets */,
+				ADF794A62217D98E007E7BED /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADF794A02217D98B007E7BED /* ToDoViewController.swift in Sources */,
+				ADF794B022180140007E7BED /* Item.swift in Sources */,
 				ADF7949E2217D98B007E7BED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
