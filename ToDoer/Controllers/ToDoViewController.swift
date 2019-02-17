@@ -17,12 +17,10 @@ class ToDoViewController: UITableViewController {
     
     
     //Add more plist for different categories
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+   // let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(dataFilePath)
         
         loadItems()
     
@@ -103,15 +101,35 @@ class ToDoViewController: UITableViewController {
 
     }
     
-    func loadItems() {
-        // <specify data type>
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
+    //set a default value inside parameter
+    func loadItems(with request : NSFetchRequest<Item> = Item.fetchRequest()) {
  
         do {
             itemArray = try context.fetch(request)
         } catch {
             print("error \(error)")
         }
+        
+        tableView.reloadData()
+    }
+    
+    
+   
+}
+
+
+// MARK - Search bar methods
+extension ToDoViewController : UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        
+        // title of coredata CONTAINS the search
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        
+        // NSSort
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        loadItems(with: request)
     }
 }
 
