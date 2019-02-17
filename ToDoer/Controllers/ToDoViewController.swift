@@ -131,5 +131,28 @@ extension ToDoViewController : UISearchBarDelegate {
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         loadItems(with: request)
     }
+    
+    //only when it changes NOT when it begins at 0
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadItems()
+            
+            
+            
+            //threads control (not really)
+            //it's just an attempt to clear keyboard
+            //use main threads for UI
+            DispatchQueue.main.async {
+                //go to the background before you were activated
+                searchBar.resignFirstResponder()
+
+            }
+            
+
+            
+            
+            
+        }
+    }
 }
 
