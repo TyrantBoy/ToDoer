@@ -13,11 +13,6 @@ class ToDoViewController: UITableViewController {
 
     var itemArray = [Item]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-    
-    
-    //Add more plist for different categories
-   // let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +20,8 @@ class ToDoViewController: UITableViewController {
         loadItems()
     
     }
+    
+
 
     //MARK - TableView Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
