@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ToDoViewController: UITableViewController {
+class ToDoViewController: SwipeTableTableViewController {
 
     var todoItems : Results<Item>?
     let realm = try! Realm()
@@ -35,18 +35,18 @@ class ToDoViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell" , for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         if let item = todoItems?[indexPath.row] {
-        tableCell.textLabel?.text = item.title
-        tableCell.accessoryType = item.done ? .checkmark : .none
+            cell.textLabel?.text = item.title
+            cell.accessoryType = item.done ? .checkmark : .none
         
             
         } else {
-            tableCell.textLabel?.text = "no item added"
+            cell.textLabel?.text = "no item added"
         }
         
-        return tableCell
+        return cell
 
         
     }
@@ -58,6 +58,8 @@ class ToDoViewController: UITableViewController {
             do {
                 try realm.write {
                    item.done = !item.done
+                    
+                    //if I want to delete instead of toggle checkmark
                    // realm.delete(item)
                 }
             } catch {
@@ -110,7 +112,19 @@ class ToDoViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    
+    override func updateModel(at indexPath: IndexPath) {
+        if let item = todoItems?[indexPath.row] {
+            do {
+               try realm.write {
+                    realm.delete(item)
+                }
+            } catch {
+                print("\n error deleting item \(error)")
+            }
+        }
+        
+        tableView.reloadData()
+    }
    
 }
 

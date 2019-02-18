@@ -16,6 +16,7 @@
 		ADF794DA221902D5007E7BED /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF794D9221902D5007E7BED /* CategoryViewController.swift */; };
 		ADF794DE221A263B007E7BED /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF794DD221A263B007E7BED /* Item.swift */; };
 		ADF794E0221A264A007E7BED /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF794DF221A264A007E7BED /* Category.swift */; };
+		ADF794E2221A80EE007E7BED /* SwipeTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF794E1221A80EE007E7BED /* SwipeTableTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +30,10 @@
 		ADF794A42217D98E007E7BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADF794A72217D98E007E7BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADF794A92217D98E007E7BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ADF794D9221902D5007E7BED /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		ADF794D9221902D5007E7BED /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		ADF794DD221A263B007E7BED /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		ADF794DF221A264A007E7BED /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		ADF794E1221A80EE007E7BED /* SwipeTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				ADF794D9221902D5007E7BED /* CategoryViewController.swift */,
 				ADF7949F2217D98B007E7BED /* ToDoViewController.swift */,
+				ADF794E1221A80EE007E7BED /* SwipeTableTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ToDoer/Pods-ToDoer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -216,6 +220,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -252,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADF794DE221A263B007E7BED /* Item.swift in Sources */,
+				ADF794E2221A80EE007E7BED /* SwipeTableTableViewController.swift in Sources */,
 				ADF794DA221902D5007E7BED /* CategoryViewController.swift in Sources */,
 				ADF794A02217D98B007E7BED /* ToDoViewController.swift in Sources */,
 				ADF7949E2217D98B007E7BED /* AppDelegate.swift in Sources */,
@@ -405,6 +411,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S58QJ4E424;
 				INFOPLIST_FILE = ToDoer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,6 +431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S58QJ4E424;
 				INFOPLIST_FILE = ToDoer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
