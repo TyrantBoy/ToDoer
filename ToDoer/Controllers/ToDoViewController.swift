@@ -83,6 +83,7 @@ class ToDoViewController: UITableViewController {
                 try self.realm.write {
                     let newItem = Item()
                     newItem.title = textField.text!
+                    newItem.dateCreated = Date()
                     currentCategory.items.append(newItem)
                 }
                 } catch {
@@ -115,40 +116,28 @@ class ToDoViewController: UITableViewController {
 
 
 //// MARK - Search bar methods
-//extension ToDoViewController : UISearchBarDelegate {
-//
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        let request : NSFetchRequest<Item> = Item.fetchRequest()
-//
-//        // title of coredata CONTAINS the search
-//        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-//
-//        // NSSort
-//        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-//        loadItems(with: request, predicate: predicate)
-//    }
-//
-//    //only when it changes NOT when it begins at 0
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchBar.text?.count == 0 {
-//            loadItems()
-//
-//
-//
-//            //threads control (not really)
-//            //it's just an attempt to clear keyboard
-//            //use main threads for UI
-//            DispatchQueue.main.async {
-//                //go to the background before you were activated
-//                searchBar.resignFirstResponder()
-//
-//            }
-//
-//
-//
-//
-//
-//        }
-//    }
-// }
+extension ToDoViewController : UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+     todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text).sorted(byKeyPath: "dateCreated", ascending: true)
+        
+        tableView.reloadData()
+    }
+
+    //only when it changes NOT when it begins at 0
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadItems()
+
+            //threads control (not really)
+            //it's just an attempt to clear keyboard
+            //use main threads for UI
+            DispatchQueue.main.async {
+                //go to the background before you were activated
+                searchBar.resignFirstResponder()
+
+            }
+        }
+    }
+ }
 

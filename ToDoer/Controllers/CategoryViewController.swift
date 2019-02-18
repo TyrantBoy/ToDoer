@@ -11,7 +11,7 @@ import RealmSwift
 
 class CategoryViewController: UITableViewController {
 
-    // try! "bad/code smell"
+    // access point to realm database
     let realm  = try! Realm()
     
     var categories: Results<Category>?
@@ -58,6 +58,8 @@ class CategoryViewController: UITableViewController {
         
         return tableCell
     }
+    
+    
     //MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToItems", sender: self)

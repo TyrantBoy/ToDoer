@@ -14,5 +14,4 @@ class Category: Object {
     
     //inside each category is category
     let items = List<Item>()
-    let array : [Int] = [1,2,3]
 }
